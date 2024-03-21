@@ -4,7 +4,7 @@ class Solution:
         if(numerator < 0 and denominator < 0):
             numerator= numerator*(-1)
             denominator = denominator *(-1)
-            
+
         elif (numerator <0):
             numerator= numerator*(-1)
             negative=True
@@ -16,6 +16,8 @@ class Solution:
         decim=numerator//denominator
         rem=numerator % denominator
         if(rem ==0):
+            if(negative):
+                decim*=-1
             return str(decim)
 
         result= str(decim)
@@ -29,5 +31,6 @@ class Solution:
 
         if rem in rem_dic:
             result= result[:rem_dic[rem]] + "(" + result[rem_dic[rem]:]+")"
-        
+        if negative:
+            result= "-"+ result
         return result
